@@ -1,0 +1,70 @@
+body {
+    background-color: #FFFFFF; /* Establece el color de fondo del cuerpo a un tono blanco ahumado */
+}
+
+.contenedor {
+    display: flex; /* Aplica un modelo de caja flexible al contenedor */
+    gap: 20px; /* Añade un espacio de 20px entre los elementos flexibles dentro del contenedor */
+}
+
+.note.taupe {
+    background: none repeat scroll 0 0 #999868; /* Color de fondo: aplica un color uniforme #999868 */
+    color: #FFFFFF; /* Color de texto: blanco */
+    margin: 2em auto; /* Margen: 2em arriba y abajo, centrado horizontalmente */
+    overflow: hidden; /* Oculta cualquier contenido que desborde el área de la notita */
+    padding: 1em 1.5em; /* Relleno: 1em arriba/abajo, 1.5em a los lados */
+    position: relative; /* Posición relativa: permite posicionar elementos hijos de manera absoluta */
+    width: 200px; /* Ancho: 200 píxeles */
+    height: 100px; /* Alto: 100 píxeles */
+    transition: transform 0.2s; /* Transición: suaviza el movimiento al aplicar transformaciones */
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5); /* Sombra a la izquierda e inferior */
+    -webkit-box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5); /* Sombra para navegadores Webkit */
+    -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.75); /* Sombra para navegadores Mozilla */
+    border-radius: 5px;
+}
+
+.note.taupe:before {
+    background: none repeat scroll 0 0 #BDBB8B; /* Color de esquina: aplica un color uniforme #BDBB8B */
+    border-color: #FFFFFF #FFFFFF #BDBB8B #BDBB8B; /* Color del borde: blanco en la parte superior e izquierda, #BDBB8B en la parte inferior y derecha */
+    border-style: solid; /* Estilo del borde: sólido */
+    border-width: 0 26px 26px 0; /* Ancho del borde: 16 píxeles en la parte inferior y derecha */
+    content: ""; /* Contenido vacío: necesario para generar el pseudo-elemento */
+    display: block; /* Modo de visualización: bloque */
+    position: absolute; /* Posición absoluta: permite posicionar el pseudo-elemento relativo a .note.taupe */
+    right: 0; /* Posición: alinea el pseudo-elemento al borde derecho */
+    top: 0; /* Posición: alinea el pseudo-elemento al borde superior */
+    width: 0; /* Ancho: 0 píxeles, ya que el tamaño se define por el borde */
+}
+
+/* Animación de vibración */
+@keyframes vibrar {
+    0%, 100% {
+        transform: translateX(0); /* Posición inicial y final sin desplazamiento */
+    }
+    20%, 60% {
+        transform: translateX(-5px); /* Desplaza hacia la izquierda 5 píxeles */
+    }
+    40%, 80% {
+        transform: translateX(5px); /* Desplaza hacia la derecha 5 píxeles */
+    }
+}
+
+.note.taupe:hover {
+    animation: vibrar 0.2s linear; /* Aplicar animación de vibración al pasar el cursor */
+}
+
+.note.taupe.red {
+    background: #ffadad; /* Color de fondo rojo */
+}
+
+.note.taupe.pink {
+    background: #ffafcc; /* Color de fondo rosa */
+}
+
+.note.taupe.yellow {
+    background: #ffd6a5; /* Color de fondo amarillo */
+}
+
+.note p {
+    z-index: 2; /* Asegura que el texto esté sobre la textura y otros elementos */
+}
